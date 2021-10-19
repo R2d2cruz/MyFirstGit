@@ -45,7 +45,7 @@ long double mysin(double x, int N)
         quotient = (pow(-1, n-1)) * (pow(x, (double) base));
         prevBase = fact(base - 1);
         if (dividend < prevBase) {
-            std::cout << "error, div: " << dividend << ", prevFact: " << prevBase << ", N= " << N << ", n= " << n << "\n";
+            std::cout << "error, insuficient memory";
             std::abort();
         }
         /* std::cout << "base: " << base << ", fact: " << fact(base) << ", dividend: " << dividend << ", quotient: " << quotient << "\n";*/
