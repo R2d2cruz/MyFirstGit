@@ -3,20 +3,20 @@
 #include <iostream>
 #include <cmath>
 
-double mysin(double x, int N);
+long double mysin(double x, int N);
 unsigned long long fact(int i);
 
 int main() 
 {
     std::cout.setf(std::ios::scientific);
-    std::cout.precision(6);
+    std::cout.precision(12);
 
     const double x = M_PI / 3;
-    const double exact = std::sin(x);
+    const long double exact = std::sin(x);
 
     for (int NMAX = 1; NMAX < 1000; NMAX++)
     {
-        double diff = std::fabs(mysin(x, NMAX) - exact) / exact;
+        long double diff = std::fabs(mysin(x, NMAX) - exact) / exact;
         std::cout << NMAX << "\t" << diff << "\n";
     }
     
@@ -31,9 +31,10 @@ unsigned long long fact(int i){
     }
 }
 
-double mysin(double x, int N)
+long double mysin(double x, int N)
 {
-    double dividend = 0;
+    unsigned long long dividend = 0;
+    unsigned long long prevBase = 0;
     double quotient = 0;
     int base = 0;
     double outcome = 0;
