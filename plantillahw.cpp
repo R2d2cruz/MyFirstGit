@@ -14,7 +14,7 @@ int main()
     const double x = M_PI / 3;
     const double exact = std::sin(x);
 
-    for (int NMAX = 10; NMAX < 20; NMAX++)
+    for (int NMAX = 1; NMAX < 1000; NMAX++)
     {
         double diff = std::fabs(mysin(x, NMAX) - exact) / exact;
         std::cout << NMAX << "\t" << diff << "\n";
@@ -41,11 +41,16 @@ double mysin(double x, int N)
     {
         base = (2 * n) - 1;
         dividend = fact(base);
-        quotient = (pow(-1,n-1)) * (pow(x, (double) base));
-        /* std::cout << "base: " << base << ", fact: " << fact(base) << ", dividen: " << dividend << ", quotient: " << quotient << "\n";*/
+        quotient = (pow(-1, n-1)) * (pow(x, (double) base));
+        prevBase = fact(base - 1);
+        if (dividend < prevBase) {
+            std::cout << "error, div: " << dividend << ", prevFact: " << prevBase << ", N= " << N << ", n= " << n << "\n";
+            std::abort();
+        }
+        /* std::cout << "base: " << base << ", fact: " << fact(base) << ", dividend: " << dividend << ", quotient: " << quotient << "\n";*/
         outcome += quotient / dividend;
     }
-    /* std::cout << outcome << "\n"; */
+    /*std::cout << outcome << "\n";*/
     
     return outcome;
 }
