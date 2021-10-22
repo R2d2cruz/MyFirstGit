@@ -11,9 +11,11 @@ using std::cout;
 int main(void) {
     cout.precision(6);
     cout.setf(std::ios::scientific);
-
-    cout << sumUp(3) << "\n";
-    cout << sumDown(3) << "\n";
+    for (int i = 0; i < 100; i++)
+    {
+        cout << i << ": " << sumUp(i) << "   " <<  sumDown(i) << "\n";
+    }
+    
 
     return 0;
 }
