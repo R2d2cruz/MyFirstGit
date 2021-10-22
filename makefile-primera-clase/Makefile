@@ -1,8 +1,18 @@
-sumas.exe: sumas.cpp
-	g++ -g sumas.cpp -o sumas.exe
+# $< : La primera dependencia
+# $@: target
+
+all: fig.pdf
+
+sumas.x: sumas.cpp
+
+%.exe: %.cpp
+	g++ $< -o $@
 
 datos.txt: sumas.exe
-	.\sumas.exe > datos.txt
+	$< > $@
+
+fig.pdf: plot.gp datos.txt
+	gnuplot $<
 
 clean:
-	rm -f *.exe datos.txt
+	rm -f a.out *.exe *.txt *.pdf

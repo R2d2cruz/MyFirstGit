@@ -1,6 +1,6 @@
 // Este progama compara la suma armonica realizada de dos formas diferentes
 #include <iostream>
-
+#include <cmath>
 
 typedef float REAL;
 REAL sumUp(int N);
@@ -13,7 +13,9 @@ int main(void) {
     cout.setf(std::ios::scientific);
     for (int i = 0; i < 100; i++)
     {
-        cout << i << ": " << sumUp(i) << "   " <<  sumDown(i) << "\n";
+        REAL suma1 = sumUp(i);
+        REAL suma2 = sumDown(i);
+        cout << i << "\t" << std::fabs(1 - suma1/suma2) << "\n";
     }
     
 
