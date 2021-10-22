@@ -18,7 +18,7 @@ REAL sumUp(int N) {
     {
         suma += 1/ii;
     }
-    
+    return suma;
 }
 
 REAL sumDown(int N) {
@@ -27,5 +27,5 @@ REAL sumDown(int N) {
     {
         suma += 1/ii;
     }
-    
+    return suma;
 }
